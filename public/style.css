@@ -1,0 +1,462 @@
+/**  
+* ! changing default styles of browser
+**/
+
+:root {
+    /* Content Section */
+    --BGC-COLOR: #93AF56;
+    --TEXT-COLOR: #fff;
+    --accent-color: #6200ee;
+    --accent-color-opaque: #6200ee24;
+
+    /* icons color */
+    --ERROR-COLOR: #dc3545;
+    --SUCCESS-COLOR: #28a745;
+
+    /* Form Section */
+    --BOX-SHADOW: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    --INPUT-BORDER-COLOR: 2px solid #c4c4c4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    font-family: monospace;
+}
+
+
+
+.container {
+    min-height: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid #039bE5; */
+    border-radius: 8px;
+    box-shadow: var(--BOX-SHADOW)
+    
+}
+
+/**  
+* ! style rules for the content section
+**/
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--BGC-COLOR);
+    width: 65%;
+    /* stretch from top to bottom */
+    min-height: 57rem;
+    padding: 8px 10px;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.img {
+    /* background-image: url("/images/illustration.svg"); */
+    /* height: 75vh; */
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    text-align: center;
+}
+
+.text {
+    text-align: center;
+    /* padding: 10px; */
+    color: var(--TEXT-COLOR);
+    font-size: 25px;
+    /* font-weight: bold; */
+}
+
+
+/**  
+* ! style rules for the form section
+**/
+
+form {
+    width: 95%;
+    /* to align the form to center */
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    justify-content: center;
+    max-width: 600px;
+    box-shadow: var(--BOX-SHADOW);
+    padding: 50px;
+}
+
+.title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    /* background-color: #039bE5; */
+    position: relative;
+    border-radius: 4px 4px 0 0;
+    height: 56px;
+    transition: background-color 500ms;
+}
+
+.input-container:hover {
+    background-color: rgb(245, 243, 243);
+    transition: all 0.4s ease;}
+
+.input-container:focus-within {
+    background-color: rgb(245, 243, 243);
+}
+
+label {
+    display: block;
+    /* margin: 5px; */
+    position: absolute;
+    top: -19%;
+    transform: translateY(-50%);
+    left: 16px;
+    color: rgba(0, 0, 0, 0.5);
+    transform-origin: top left;
+    user-select: none;
+    transition: transform 150ms 
+                cubic-bezier(0.4, 0, 0.2, 1),
+                color 150ms cubic-bezier(0.4, 0, 0.2, 1), 
+                top 500ms;
+}
+
+/* Input icons */
+.input-icons {
+    position: absolute;
+    top: 30%;
+}
+
+input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    caret-color: var(--SUCCESS-COLOR);
+    border-radius: 8px;
+    outline: none;
+    border: var(--INPUT-BORDER-COLOR);
+    /* border-bottom-color: var(--ERROR-COLOR); */
+    border-bottom-color: rgba(0, 0, 0, 0.42);
+    color: rgba(0, 0, 0, 0.87);
+    padding: 20px 30px 6px;
+    font-size: 1rem;
+    box-shadow: var(--BOX-SHADOW);
+}
+
+input:focus {
+    outline: none;
+    border-bottom-width: 2px;
+    border-bottom-color: var(--INPUT-BORDER-COLOR);
+}
+
+input:focus + label,
+input.is-valid + label {
+    transform: translateY(-100%), scale(0.75);
+}
+
+input[type=submit] {
+    transition: 0.25s;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    padding: 12px;
+    background-color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+}
+
+input[type=submit]:disabled {
+    color: #808080;
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+  }
+
+  input[type=submit]:not(:disabled):hover {
+    border-color: transparent;
+    background-color: var(--accent-color-opaque);
+    color: var(--accent-color);
+  }
+  
+.toggle-icon {
+    position: absolute;
+    transition: opacity .25s;
+    background-color: transparent;
+    top: 15%;
+    right: 10%;
+    cursor: pointer;
+    border: none;
+    color: grey;
+    outline: none;
+    z-index: 2;
+
+}
+
+.toggle-icon i {
+    font-size: 1.2rem;
+    color: grey;
+}
+.toggle-icon:hover {
+    color: black;
+    }
+
+
+
+form div {
+    margin-bottom: 18px;
+    position: relative;
+}
+
+div input:focus {
+    /* border: 2px solid #93AF56; */
+    outline: none;
+}
+
+div.error input {
+    border-color: var(--ERROR-COLOR)
+}
+div.success input {
+    border-color: var(--SUCCESS-COLOR)
+}
+
+.show-password {
+    transition: opacity .25s;
+    position: absolute;
+    background-color: transparent;
+    right: 10px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    height: fit-content;
+    border: none;
+    font-size: 10px;
+    color: grey;
+    cursor: pointer;
+    outline: none;
+    text-transform: uppercase;
+  }
+  
+  .show-password:hover,
+  .show-password:focus {
+    color: black;
+    cursor: pointer;
+  }
+
+.show-password i {
+    position: relative;
+    font-size: 1rem;
+}
+
+  .input-container:not(:hover, :focus-within) .toggle-icon {
+    opacity: 0;
+  }
+  
+  .password-requirements {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -1rem;
+    padding: 0 16px;
+  }
+  
+
+/**  
+* ! style rules for the form icons
+**/
+
+form div i {
+    position: absolute;
+    padding: 10px;
+}
+
+.failure-icon,
+.success-icon {
+    position: absolute;
+    top: 20%;
+/* right: 0;     */
+    opacity: 0;
+}
+
+.failure-icon,
+.error {
+    color: var(--ERROR-COLOR)
+}
+
+.success-icon {
+    color: var(--SUCCESS-COLOR)
+}
+
+.error {
+    font-size: 14.5px;
+    margin-top: 5px;
+}
+
+
+/**  
+* ! Button styling 
+**/
+
+#button {
+    width: 100%;
+    height: 45px;
+    background-color: #93AF56;
+    border: 2px solid #93AF56;
+    border-radius: 8px;
+    box-shadow: var(--BOX-SHADOW);
+    font-size: 20px;
+    margin-top: 15px;
+    color: var(--TEXT-COLOR);
+    cursor: pointer;
+    transform: all 0.2s ease;
+}
+    
+#button:hover {
+    opacity: 0.8;
+}
+
+/**  
+* ! style rules for social button  
+**/
+span {
+    color: #93AF56;
+    cursor: pointer;
+    
+    /* font-weight: bold; */
+}
+
+.question {
+    font-size: 15px;
+}
+
+.btn {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.btn-1,
+.btn-2 {
+    width: 100%;
+    height: 40px;
+    padding: 10px 5px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    border: var(--INPUT-BORDER-COLOR);
+    border-radius: 8px;
+    box-shadow: var(--BOX-SHADOW);
+    cursor: pointer;
+}
+
+
+.btn-2 {
+    background-color: #039bE5;
+    color: #ffffff;
+}
+
+.btn-1:hover {
+    background-color: rgb(245, 243, 243);
+    transition: all 0.4s ease;
+}
+.btn-2:hover {
+    background-color: #fff;
+    color: #039bE5;
+    transition: all 0.4s ease;
+}
+
+
+
+
+.or {
+    text-align: center;
+    font-size: 30px;
+    /* font-weight: bold; */
+}
+
+
+
+
+
+
+/**  
+* ! Media queries are here
+**/
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;    
+    }
+
+    .content,
+    #form {
+        width: 100%;
+        /* align-items: center; */
+        justify-content: center;
+    }
+
+    .content {
+        justify-content: space-between;
+    }
+
+
+    .content .text {
+        font-size: 25px;
+        /* padding-bottom: 100px; */
+    }
+
+    .title,
+    .question {
+        text-align: center;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .question {
+        font-size: 20px;
+    }
+
+    .btn {
+        flex-direction: column;
+
+    }
+    
+}
+
+@media (max-width: 500px) {
+    #form {
+        padding: 20px;
+    }
+}
+
+.count{
+    font-weight: lighter;
+    color: black;
+}
+.count strong{
+    font-weight: bold;
+    font-size: 15px;
+    color: #93AF56;
+}
+
+.errormessage {
+    color: red;
+    font-size: 16px;
+    font-weight: lighter;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
