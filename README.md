@@ -18,7 +18,3 @@ This project is a website built with Node.js and MySQL for form validation.
 ## Contributing
 
 Contributions are welcome. Feel free to open an issue or pull request.
-
-## License
-
-This project is licensed under the MIT License.
